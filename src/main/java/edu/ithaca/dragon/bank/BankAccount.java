@@ -34,7 +34,13 @@ public class BankAccount {
 
     }
 
-
+    /**
+     * Checks to see if an email is valid.
+     * A valid email is defined as a string containing an @ that is not the first character
+     * also containing a period some # of characters after the @
+     * @param email
+     * @return True or False
+     */
     public static boolean isEmailValid(String email){
         if (email.indexOf('@') == -1){
             return false;
