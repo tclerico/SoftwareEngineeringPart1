@@ -19,6 +19,13 @@ class BankAccountTest {
         bankAccount.withdraw(100);
 
         assertEquals(100, bankAccount.getBalance());
+
+        // New Tests
+        bankAccount.withdraw(150);
+        // shows that the expected does not equal the actual balance
+        assertNotEquals(100, bankAccount.getBalance());
+        // should throw exception and not subtract from balance
+        assertEquals(100, bankAccount.getBalance());
     }
 
     @Test
@@ -29,6 +36,8 @@ class BankAccountTest {
         // New Tests
         assertFalse(BankAccount.isEmailValid("@bbb.asda"));
         assertFalse(BankAccount.isEmailValid("a@b"));
+        assertFalse(BankAccount.isEmailValid("a@.com"));
+        assertTrue(BankAccount.isEmailValid("test@mail.com"));
 
     }
 
