@@ -26,6 +26,11 @@ class BankAccountTest {
         assertNotEquals(100, bankAccount.getBalance());
         // should throw exception and not subtract from balance
         assertEquals(100, bankAccount.getBalance());
+
+        bankAccount.withdraw(-20);
+
+        bankAccount.withdraw(50);
+        assertEquals(50, bankAccount.getBalance());
     }
 
     @Test
