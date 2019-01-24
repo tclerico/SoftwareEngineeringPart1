@@ -69,6 +69,11 @@ public class BankAccount {
      * @return true or false
      */
     public static boolean isAmountValid(double amount){
-        return false;
+        String[] split = String.valueOf(amount).split("\\.");
+        if ( split[1].length() <= 2 && amount >= 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
