@@ -28,9 +28,19 @@ public class BankAccount {
 
     /**
      * @post reduces the balance by amount if amount is non-negative and smaller than balance
+     * if amount is negative print error
+     * if amount is greater than balance also print error
      */
     public void withdraw (double amount)  {
-        balance -= amount;
+        if (amount <= 0){
+            System.out.println("Invalid Input");
+        }
+        else if(amount > balance){
+            System.out.println("Input Is Greater Than Balance");
+        }
+        else {
+            balance -= amount;
+        }
 
     }
 
@@ -50,5 +60,15 @@ public class BankAccount {
         else {
             return false;
         }
+    }
+
+    /**
+     * Checks to see if the input amount is valid
+     * a valid amount is non-negative does not equal zero and has no more than 2 decimal places
+     * @param amount
+     * @return true or false
+     */
+    public static boolean isAmountValid(double amount){
+        return false;
     }
 }
