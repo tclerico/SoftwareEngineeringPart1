@@ -9,7 +9,7 @@ public class BankAccount {
      * @throws IllegalArgumentException if email is invalid
      */
     public BankAccount(String email, double startingBalance){
-        if (isEmailValid(email)){
+        if (isEmailValid(email) && isAmountValid(startingBalance)){
             this.email = email;
             this.balance = startingBalance;
         }
@@ -32,14 +32,11 @@ public class BankAccount {
      * if amount is greater than balance also print error
      */
     public void withdraw (double amount)  {
-        if (amount <= 0){
-            System.out.println("Invalid Input");
-        }
-        else if(amount > balance){
-            System.out.println("Input Is Greater Than Balance");
+        if (isAmountValid(amount) && amount <= balance){
+            balance -= amount;
         }
         else {
-            balance -= amount;
+            throw new IllegalArgumentException("Invalid amount");
         }
 
     }
